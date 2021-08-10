@@ -3,7 +3,6 @@ const { promisify } = require('util');
 require('dotenv').config();
 
 const auth = {
-    tokenKey: 'ffc674a9314e1f2804a68c06d79ce868',
     authBearrer: async (req, res, next) => {
         const authHeader = req.headers.authorization;
         if (!authHeader) {
@@ -29,7 +28,7 @@ const auth = {
         return jwt.sign(
             dados, 
             process.env.AUTH_KEY_SECRET,
-            { expiresIn: "1h" });
+            { expiresIn: "600" });
     }
 };
 
